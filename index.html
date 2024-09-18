@@ -11,7 +11,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>TronKing0</title>
+    <title>TronKing</title>
 
     <link rel="shortcut icon" href="TRONKING Favicon.png"  type="images/x-icon"/>
 
@@ -1282,22 +1282,22 @@ gtag('config', 'UA-175172407-1');
         </div>
         <div class="modal_valuemain" style="display: flex; justify-content: space-around; margin-top: 20px;">
           <div class="modal_valuemain_left">
-              <div class="modal_valuetitle" style="font-size: 14px;">Your current daily Bonus</div>
-              <div class="modal_valueresult userPercentRate" style="font-size: 18px; font-weight: bold;">+2.0%</div>
-              <div class="modal_valuetitle" style="font-size: 14px;">Basic Bonus</div>
-              <div class="modal_valueresult basicPercentRate" style="font-size: 18px; font-weight: bold;">+2.0%</div>
+              <div class="modal_valuetitle" style="font-size: 14px;">Your current daily Bonus %</div>
+              <div class="modal_valueresult dailybalancerate" style="font-size: 18px; font-weight: bold;">0</div>
+              <div class="modal_valuetitle" style="font-size: 14px;">Basic Bonus %</div>
+              <div class="modal_valueresult basicPercentRate" style="font-size: 18px; font-weight: bold;">0</div>
           </div>
           <div class="modal_valuemain_right">
-              <div class="modal_valuetitle" style="font-size: 14px;">Hold-bonus</div>
-              <div class="modal_valueresult holdPercentRate" style="font-size: 18px; font-weight: bold;">+0.0%</div>
-              <div class="modal_valuetitle" style="font-size: 14px;">Direct Referral Bonus</div>
-              <div class="modal_valueresult contractBalanceRate" style="font-size: 18px; font-weight: bold;">+1.00%</div>
+              <div class="modal_valuetitle" style="font-size: 14px;">Hold-bonus %</div>
+              <div class="modal_valueresult holdPercentRate" style="font-size: 18px; font-weight: bold;">0</div>
+              <!-- <div class="modal_valuetitle" style="font-size: 14px;">Direct Referral Bonus</div>
+              <div class="modal_valueresult contractBalanceRate" style="font-size: 18px; font-weight: bold;">+1.00%</div> -->
           </div>
       </div>
   
-      <ul class="modal_strip d-block m-0" style="list-style: none; padding: 0; text-align: left; margin-top: 20px;">
+      <ul class="modal_strip d-block m-0" style="list-style: none; padding: 0; text-align: center; margin-top: 20px;">
           <li style="font-size: 12px; margin-bottom: 10px;"><span class="title" style="font-weight: bold;">Total Contributed:</span> <span class="value userTotalDeposits" style="font-weight: bold;">0</span> <span class="prefix" >TRX</span></li>
-          <li style="font-size: 12px; margin-bottom: 10px;"><span class="title" style="font-weight: bold;">Total Refferal Earned:</span> <span class="value userEarned" style="font-weight: bold;">0</span> <span class="prefix">TRX</span></li>
+          <li style="font-size: 12px; margin-bottom: 10px; visibility: hidden;"><span class="title" style="font-weight: bold;">Total Refferal Earned:</span> <span class="value userEarned" style="font-weight: bold;">0</span> <span class="prefix">TRX</span></li>
           <li style="font-size: 12px; margin-bottom: 10px;"><span class="title" style="font-weight: bold;">Reinvest Bonus:</span> <span class="value matchBonus" style="font-weight: bold;">0</span> <span class="prefix">TRX</span></li>
       </ul>
   
@@ -1305,21 +1305,27 @@ gtag('config', 'UA-175172407-1');
           <div class="modal_valuemain_left">
               <div class="modal_valuetitle" style="font-size: 14px;">Total withdrawn</div>
               <div class="modal_valueresult" style="font-size: 18px; font-weight: bold;"><span class="userTotalWithdrawn">0.00</span><img src="media/img/tron.png" alt="" style="vertical-align: middle;"></div>
-              <div class="modal_valuetitle" style="font-size: 14px;">Referral rewards</div>
-              <div class="modal_valueresult" style="font-size: 18px; font-weight: bold;"><span class="userRefsEarned">0</span><img src="media/img/tron.png" alt="" style="vertical-align: middle;"></div>
+              <!-- <div class="modal_valuetitle" style="font-size: 14px;">Referral rewards</div>
+              <div class="modal_valueresult" style="font-size: 18px; font-weight: bold;"><span class="userRefsEarned">0</span><img src="media/img/tron.png" alt="" style="vertical-align: middle;"></div> -->
           </div>
           <div class="modal_valuemain_right">
-              <div class="modal_valuetitle" style="font-size: 14px;">Number of deposits</div>
-              <div class="modal_valueresult userAmountOfDeposits" style="font-size: 18px; font-weight: bold;">...</div>
-              <div class="modal_valuetitle" style="font-size: 14px;">Last deposit date</div>
-              <div class="modal_valueresult userLastDepositTime" style="font-size: 18px; font-weight: bold;">no deposits</div>
+              <div class="modal_valuetitle" style="font-size: 14px;">Number of Interaction</div>
+              <div class="modal_valueresult userAmountOfDeposits" style="font-size: 18px; font-weight: bold;">0</div>
+              <!-- <div class="modal_valuetitle" style="font-size: 14px;">Last deposit date</div>
+              <div class="modal_valueresult userLastDepositTime" style="font-size: 18px; font-weight: bold;">no deposits</div> -->
           </div>
       </div>
+
+      <ul class="modal_strip_1 d-block m-0" style="list-style: none; padding: 0; text-align: center; margin-top: 20px; background-image: #f9f9f9;">
+        <li style="font-size: 12px; margin-bottom: 10px;"><span class="title" style="font-weight: bold;">Available Referral Bonus</span> <span class="value userAvailableBonus" style="font-weight: bold;">0</span> <span class="prefix" >TRX</span></li>
+        <li style="font-size: 12px; margin-bottom: 10px;"><span class="title" style="font-weight: bold;">Available Dividend Bonus</span> <span class="value userdividend" style="font-weight: bold;">0</span> <span class="prefix">TRX</span></li>
+        <li style="font-size: 12px; margin-bottom: 10px;"><span class="title" style="font-weight: bold;">Available Match Bonus</span> <span class="value matchBonus" style="font-weight: bold;">0</span> <span class="prefix">TRX</span></li>
+    </ul>
   
       <div class="wallet" style="text-align: center; margin-top: 20px;">
           <ul class="modal_strip m-0" style="list-style: none; padding: 0;">
               <li class="one" style="font-size: 14px; margin-bottom: 10px;">
-                  <span class="title" style="font-weight: bold;">Available withdraw balance:</span>
+                  <span class="title" style="font-weight: bold;">Available Total Withdraw Balance</span>
                   <span class="value userAvailable" style="font-weight: bold;">0</span>
                   <span class="prefix">TRX</span>
               </li>
@@ -1473,8 +1479,8 @@ gtag('config', 'UA-175172407-1');
   </script>
   
   <script src="assets/New Js/clipboard.min.js"></script>
-  <script>
-  var contractAddress = 'TDab4X6Hwks8iE3xwoaowG8xmWzDqBfWvS';
+  <script> 
+  var contractAddress = 'TTtUN3XbVD4BJycnRw7ejUT8PArBEd4nyN';
   var userReferer = 'No upline';
   var refererDefault = 'TAowADvZX42wXnd3dhbDypK2vyCDCf3rd4';
   var language = 'zh';

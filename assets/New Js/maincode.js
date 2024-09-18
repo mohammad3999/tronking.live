@@ -1193,7 +1193,7 @@ $(function () {
     const walletaddressdata = userAddress;
     console.log("test wallet address:",walletaddressdata)
     let res3 = await instance.getUserTotalDeposits(userAddress).call();
-    leval3 = tronWeb.toDecimal(res3);
+    leval3 = tronWeb.toDecimal(res3)/1000000;
     userLeval3 = parseFloat(getFormattedNumber(leval3));
     $(".userTotalDeposits").html(leval3);
     console.log("test case 3:", leval3);
@@ -1225,6 +1225,7 @@ try {
   console.log("Error in test case 5:", userLeval5);
 }
 
+
 // getUserRefEarnings for case 6
 try {
   let res6 = await instance.getUserRefEarnings(userAddress).call();
@@ -1236,7 +1237,7 @@ try {
   }
 
   let userLeval6 = parseFloat(getFormattedNumber(leval6));
-  $('.userEarned').html(userLeval6 == NaN ? userLeval6.toString() : 0);
+  // $('.userEarned').html(userLeval6 == NaN ? userLeval6.toString() : 0);
 
   console.log("test case 6:", userLeval6);
 
@@ -1261,7 +1262,7 @@ console.log("test case 8:", leval8)
 
 // getUserAmountOfDeposits
 let res9 = await instance.getUserAmountOfDeposits (userAddress).call();
-leval9 = tronWeb.toDecimal(res9)/1000000;
+leval9 = tronWeb.toDecimal(res9);
 userLeval9 = parseFloat(getFormattedNumber(leval9));
 $('.userAmountOfDeposits').html(leval9);
 console.log("test case 9:", leval9);
@@ -1272,7 +1273,52 @@ let res10 = await instance.getUserAvailableBalanceForWithdrawal (userAddress).ca
 leval10 = tronWeb.toDecimal(res10)/1000000;
 userLeval10 = parseFloat(getFormattedNumber(leval10));
 $('.userAvailable').html(leval10);
-console.log("test case 10:", leval10)
+console.log("test case 10:", leval10);
+
+//GetUserPrecentageRate
+let res11 = await instance.getUserPercentRate (userAddress).call();
+leval11 = tronWeb.toDecimal(res11)/100;
+userLeval11 = parseFloat(getFormattedNumber(leval11));
+$('.holdPercentRate').html(leval11);
+console.log("test case 11:", leval11)
+
+
+
+//basicPercentRate
+let res12 = await instance.BASE_PERCENT().call();
+leval12 = tronWeb.toDecimal(res12)/100;
+userLeval12 = parseFloat(getFormattedNumber(leval12));
+$('.basicPercentRate').html(leval12);
+console.log("test case 12:", leval12)
+
+//dailybalancerate
+let res13 = await instance.BASE_PERCENT().call();
+leval13 = tronWeb.toDecimal(res13)/100;
+userLeval13 = parseFloat(getFormattedNumber(leval13));
+$('.dailybalancerate').html(leval13);
+console.log("test case 13:", leval13)
+
+
+
+
+//Available Referral Bonus
+
+let res14 = await instance.getUserReferralBonus(userAddress).call();
+leval14 = tronWeb.toDecimal(res14)/1000000;
+userLeval14 = parseFloat(getFormattedNumber(leval14));
+$('.userAvailableBonus').html(leval14);
+console.log("test case 14:", leval14)
+
+
+//userdividend
+
+let res15 = await instance.getUserDividends(userAddress).call();
+leval15 = tronWeb.toDecimal(res15)/1000000;
+userLeval15 = parseFloat(getFormattedNumber(leval15));
+$('.userdividend').html(leval15);
+console.log("test case 15:", leval15)
+
+
 
 try {
   // getUserDownlineCount is assumed to return an array or multiple uint256 values for each level

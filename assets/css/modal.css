@@ -1,3 +1,5 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
 
 body.ru header .menu li a {
     margin: 0 6px
@@ -4909,18 +4911,19 @@ html.remodal-is-locked {
     width: 33.33%;
     text-align: center;
     background-image: linear-gradient(#f2aa14, #f2aa14);
+    border-radius: 10px 10px 10px 10px;
     border: none !important;
     color: #000
 }
 
 .modal_strip li:first-child {
-    border-radius: 10px 0 0 10px;
+    border-radius: 10px 10px 10px 10px;
     background-image: linear-gradient(#337ab7, #337ab7);
     border: none !important
 }
 
 .modal_strip li:last-child {
-    border-radius: 0 10px 10px 0;
+    border-radius: 10px 10px 10px 10px;
     background-image: linear-gradient(#38df5c, #6a9d08);
     border: none !important
 }
@@ -4953,6 +4956,96 @@ html.remodal-is-locked {
     border-radius: 0 10px 10px 0 !important;
     width: 50% !important
 }
+
+/* Available bonus and match */
+.modal_strip_1 {
+    width: 100%;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.modal_strip_1 li {
+    float: left;
+    padding: 10px;
+    width: 30.33%;
+    text-align: center;
+    background-image: linear-gradient(#f2aa14, #f2aa14);
+    border: none !important;
+    border-radius: 10px 10px 10px 10px;
+    color: #000;
+    margin-left: 20px;
+    position: relative; /* To position the icon relative to the li */
+}
+
+/* Style for the plus icon, applied only to the first and second items */
+.modal_strip_1 li:nth-child(1)::before,
+.modal_strip_1 li:nth-child(2)::before {
+    content: "\f067"; /* Unicode for Font Awesome plus-circle */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 16px;
+    color: #000; /* You can adjust the color of the plus icon */
+    position: absolute;
+    right: -17px; /* Adjust the positioning as per your need */
+    top: 50%;
+    transform: translateY(-50%);
+}
+.modal_strip_1 li:first-child {
+    border-radius: 10px 10px 10px 10px;
+    background-image: linear-gradient(#7f9fbb, #405d76);
+    border: none !important;
+    margin-left: 10px;
+}
+
+
+.modal_strip_1 li:last-child {
+    border-radius: 10px 10px 10px 10px;
+    background-image: linear-gradient(#7f9fbb, #405d76);
+    border: none !important;
+}
+
+.modal_strip_1 li .title {
+    font-size: 14px;
+    display: block;
+}
+
+.modal_strip_1 li .value {
+    font-size: 20px;
+    display: block;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px #3c3c3c;
+}
+
+.modal_strip_1 li .prefix {
+    font-size: 16px;
+    display: block;
+    margin-top: -5px;
+}
+
+.modal_strip_1 .one {
+    border-radius: 10px 0 0 10px !important;
+    width: 50% !important;
+    background-image: linear-gradient(#22b2a0, #3cdbc7) !important;
+}
+
+.modal_strip_1 .two {
+    border-radius: 0 10px 10px 0 !important;
+    width: 50% !important;
+}
+
+/* Adjust icon placement on smaller screens */
+@media only screen and (max-width: 768px) {
+    .modal_strip_1 li::after {
+        right: -10px; /* Move icon closer for smaller screens */
+        font-size: 14px; /* Adjust icon size for mobile */
+    }
+}
+
+/* end */
 
 .modal_valuemain {
     width: 100%;
