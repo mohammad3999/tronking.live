@@ -972,39 +972,39 @@ $(function () {
     return false;
   });
 
-  async function getContractBalanceRate() {
-    let instance = await tronWeb.contract(abi, contractAddress);
-    let res = await instance.getContractBalanceRate().call();
-    contractBalanceRate = tronWeb.toDecimal(res);
-    contractBalanceRate = (contractBalanceRate - 10) / 10;
-    contractBalanceRate = contractBalanceRate.toFixed(1);
-    $(".contractBalanceRate").html("+" + contractBalanceRate + "%");
-  }
+  // async function getContractBalanceRate() {
+  //   let instance = await tronWeb.contract(abi, contractAddress);
+  //   let res = await instance.getContractBalanceRate().call();
+  //   contractBalanceRate = tronWeb.toDecimal(res);
+  //   contractBalanceRate = (contractBalanceRate - 10) / 10;
+  //   contractBalanceRate = contractBalanceRate.toFixed(1);
+  //   $(".contractBalanceRate").html("+" + contractBalanceRate + "%");
+  // }
 
-  async function getUserPercentRate() {
-    await getContractBalanceRate();
-    let instance = await tronWeb.contract(abi, contractAddress);
-    let res = await instance.getUserPercentRate(userAddress).call();
-    userPercentRate = tronWeb.toDecimal(res);
-    userPercentRate = userPercentRate / 10;
-    userPercentRate = userPercentRate.toFixed(1);
-    $(".userPercentRate").html("+" + userPercentRate + "%");
-    var basicPercentRate = 1;
-    basicPercentRate = basicPercentRate.toFixed(1);
-    holdPercentRate = userPercentRate - contractBalanceRate - basicPercentRate;
-    holdPercentRate = holdPercentRate.toFixed(1);
-    $(".holdPercentRate").html("+" + holdPercentRate + "%");
-    $(".basicPercentRate").html("+" + basicPercentRate + "%");
-  }
+  // async function getUserPercentRate() {
+  //   await getContractBalanceRate();
+  //   let instance = await tronWeb.contract(abi, contractAddress);
+  //   let res = await instance.getUserPercentRate(userAddress).call();
+  //   userPercentRate = tronWeb.toDecimal(res);
+  //   userPercentRate = userPercentRate / 10;
+  //   userPercentRate = userPercentRate.toFixed(1);
+  //   $(".userPercentRate").html("+" + userPercentRate + "%");
+  //   var basicPercentRate = 1;
+  //   basicPercentRate = basicPercentRate.toFixed(1);
+  //   holdPercentRate = userPercentRate - contractBalanceRate - basicPercentRate;
+  //   holdPercentRate = holdPercentRate.toFixed(1);
+  //   $(".holdPercentRate").html("+" + holdPercentRate + "%");
+  //   $(".basicPercentRate").html("+" + basicPercentRate + "%");
+  // }
 
-  async function getUserAvailable() {
-    let instance = await tronWeb.contract(abi, contractAddress);
-    let res = await instance.getUserAvailable(userAddress).call();
-    userAvailable = tronWeb.toDecimal(res);
-    userAvailableTrx = userAvailable / 1000000;
-    userAvailableTrx = parseFloat(getFormattedNumber(userAvailableTrx));
-    $(".userAvailable").html(userAvailableTrx);
-  }
+  // async function getUserAvailable() {
+  //   let instance = await tronWeb.contract(abi, contractAddress);
+  //   let res = await instance.getUserAvailable(userAddress).call();
+  //   userAvailable = tronWeb.toDecimal(res);
+  //   userAvailableTrx = userAvailable / 1000000;
+  //   userAvailableTrx = parseFloat(getFormattedNumber(userAvailableTrx));
+  //   $(".userAvailable").html(userAvailableTrx);
+  // }
   console.log("test case 2");
   async function getUserTotalDeposits() {
     console.log("test case 3.1");
@@ -1115,7 +1115,7 @@ $(function () {
   }
 
   async function updateFull() {
-    await getUserPercentRate();
+    // await getUserPercentRate();
     await getUserTotalDeposits();
     await getUserTotalWithdrawn();
     await getUserLastDepositTime();
@@ -1124,7 +1124,7 @@ $(function () {
   }
 
   async function update() {
-    await getUserPercentRate();
+    // await getUserPercentRate();
     await getUserTotalDeposits();
     await getUserTotalWithdrawn();
     await getUserLastDepositTime();
@@ -1198,12 +1198,12 @@ $(function () {
     $(".userTotalDeposits").html(leval3);
     console.log("test case 3:", leval3);
 
-// userTotalDeposits
-    let res4 = await instance.getUserTotalWithdrawn(userAddress).call();
-    leval4 = tronWeb.toDecimal(res4)/1000000;
-    userLeval4 = parseFloat(getFormattedNumber(leval4));
-    $('.userTotalWithdrawn').html(leval4);
-    console.log("test case 4:", leval4);
+// // userTotalDeposits
+//     let res4 = await instance.getUserTotalWithdrawn(userAddress).call();
+//     leval4 = tronWeb.toDecimal(res4)/1000000;
+//     userLeval4 = parseFloat(getFormattedNumber(leval4));
+//     $('.userTotalWithdrawn').html(leval4);
+//     console.log("test case 4:", leval4);
 
 //  userRefsEarned 
 // Referral Reward
@@ -1253,12 +1253,19 @@ userLeval7 = parseFloat(getFormattedNumber(leval7));
 $('.matchBonus').html(leval7);
 console.log("test case 7:", leval7);
 
-// getUserTotalWithdrawn
-let res8 = await instance.getUserTotalWithdrawn (userAddress).call();
-leval8 = tronWeb.toDecimal(res8)/1000000;
-userLeval8 = parseFloat(getFormattedNumber(leval8));
-$('.userTotalWithdrawn').html(leval8);
-console.log("test case 8:", leval8)
+// Reinvested Amount
+let Reinvest = await instance.getUserReinvested(userAddress).call();
+let reinvest = tronWeb.toDecimal(Reinvest)/1000000;
+let reinvestAmount = parseFloat(getFormattedNumber(reinvest));
+$('.reinvestAmount').html(reinvestAmount);
+console.log("test case reinvest:", reinvestAmount);
+
+// // getUserTotalWithdrawn
+// let res8 = await instance.getUserTotalWithdrawn (userAddress).call();
+// leval8 = tronWeb.toDecimal(res8)/1000000;
+// userLeval8 = parseFloat(getFormattedNumber(leval8));
+// $('.userTotalWithdrawn').html(leval8);
+// console.log("test case 8:", leval8)
 
 // getUserAmountOfDeposits
 let res9 = await instance.getUserAmountOfDeposits (userAddress).call();
@@ -1271,13 +1278,14 @@ console.log("test case 9:", leval9);
 // getUserAvailableBalanceForWithdrawal
 let res10 = await instance.getUserAvailableBalanceForWithdrawal (userAddress).call();
 leval10 = tronWeb.toDecimal(res10)/1000000;
-userLeval10 = parseFloat(getFormattedNumber(leval10));
-$('.userAvailable').html(leval10);
-console.log("test case 10:", leval10);
+console.log("test case 10:match ", leval7);
+userLeval10 = parseFloat(getFormattedNumber(leval10 + leval7));
+$('.userAvailable').html(userLeval10);
+console.log("test case 10:", userLeval10);
 
 //GetUserPrecentageRate
 let res11 = await instance.getUserPercentRate (userAddress).call();
-leval11 = tronWeb.toDecimal(res11)/100;
+leval11 = tronWeb.toDecimal(res11)/10;
 userLeval11 = parseFloat(getFormattedNumber(leval11));
 $('.holdPercentRate').html(leval11);
 console.log("test case 11:", leval11)
@@ -1286,18 +1294,23 @@ console.log("test case 11:", leval11)
 
 //basicPercentRate
 let res12 = await instance.BASE_PERCENT().call();
-leval12 = tronWeb.toDecimal(res12)/100;
+leval12 = tronWeb.toDecimal(res12)/10;
 userLeval12 = parseFloat(getFormattedNumber(leval12));
 $('.basicPercentRate').html(leval12);
 console.log("test case 12:", leval12)
 
 //dailybalancerate
 let res13 = await instance.BASE_PERCENT().call();
-leval13 = tronWeb.toDecimal(res13)/100;
-userLeval13 = parseFloat(getFormattedNumber(leval13));
-$('.dailybalancerate').html(leval13);
-console.log("test case 13:", leval13)
+let holdbonus = await instance.MAX_HOLD_PERCENT().call();
+let LEADER_BONUS_MAX = await instance.MAX_LEADER_PERCENT().call();
+let LEADER_BONUS_MAX13 = tronWeb.toDecimal(LEADER_BONUS_MAX)/10;
+let holdbonus13 = tronWeb.toDecimal(holdbonus)/10;
+leval13 = tronWeb.toDecimal(res13)/10;
 
+let total = holdbonus13 + leval13 + LEADER_BONUS_MAX13;
+userLeval13 = parseFloat(getFormattedNumber(total));
+$('.dailybalancerate').html(total);
+console.log("test case 13:", total)
 
 
 
@@ -1317,6 +1330,33 @@ leval15 = tronWeb.toDecimal(res15)/1000000;
 userLeval15 = parseFloat(getFormattedNumber(leval15));
 $('.userdividend').html(leval15);
 console.log("test case 15:", leval15)
+
+
+
+// First, get the value of leval4, leval14, and leval7
+let res4 = await instance.getUserTotalWithdrawn(userAddress).call();
+let leval4 = tronWeb.toDecimal(res4) / 1000000;
+console.log("test case 4 leval4:", leval4);
+
+let res14SECOND = await instance.getUserReferralBonus(userAddress).call();
+let leval14SECOND = tronWeb.toDecimal(res14SECOND) / 1000000;
+console.log("test case 14 leval14:", leval14SECOND);
+
+let res7SECND = await instance.getUserMatchBonus(userAddress).call();
+let leval7sECOND = tronWeb.toDecimal(res7SECND) / 1000000;
+console.log("test case 7 leval7:", leval7sECOND);
+
+// Assuming leval4, leval14, and leval7 are now properly defined, you can calculate the total
+const totalLeval = leval4 + leval14SECOND + leval7sECOND;
+console.log("Total of leval4, leval14, and leval7:", leval4);
+
+// Calculate 60% of the total
+const userLeval4 = totalLeval * 0.60;
+console.log(" test 60% of totalLeval:", userLeval4);
+
+// Update the HTML element with the calculated value
+$('.userTotalWithdrawn').html(leval4);
+console.log("test case 4 (60% of totalLeval):", userLeval4);
 
 
 
